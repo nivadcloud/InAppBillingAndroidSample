@@ -1,5 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Nivad Billing Sample</string>
-
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">کتابخانه‌ی پرداخت نیواد</string>
+    <string name="purchasable_products">محصولات خریدنی</string>
+    <string name="purchase">خرید</string>
+    <string name="consume">مصرف</string>
+    <string name="toast_buying_test1">خرید محصول nivad.billing_sample.consumable</string>
+    <string name="toast_buying_test2">خرید محصول nivad.billing_sample.non_consumable</string>
+    <string name="toast_test1_consume_success">محصول nivad.billing_sample.consumable با موفقیت مصرف شد</string>
+    <string name="toast_test1_consume_fail">در مصرف محصول nivad.billing_sample.consumable اشکالی پیش آمد</string>
+    <string name="toast_product_purchased">محصول %s خریداری شد</string>
 </resources>
