@@ -72,5 +72,45 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:text="@string/subscriptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_gravity="center_horizontal" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvSubscription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nivad.billing_sample.subscription (اشتراک ماهانه)"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/purchase"
+            android:id="@+id/btnSubsTest"
+            android:onClick="btnSubscribeClick"
+            android:layout_below="@+id/tvSubscription"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subs_test"
+            android:id="@+id/btnCheckSubscription"
+            android:onClick="btnCheckSubscriptionClick"
+            android:layout_alignTop="@+id/btnSubsTest"
+            android:layout_toLeftOf="@+id/btnSubsTest"
+            android:layout_toStartOf="@+id/btnSubsTest" />
+
+    </RelativeLayout>
 </LinearLayout>

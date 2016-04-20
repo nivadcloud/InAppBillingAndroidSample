@@ -9,4 +9,8 @@
     <string name="toast_test1_consume_success">محصول nivad.billing_sample.consumable با موفقیت مصرف شد</string>
     <string name="toast_test1_consume_fail">در مصرف محصول nivad.billing_sample.consumable اشکالی پیش آمد</string>
     <string name="toast_product_purchased">محصول %s خریداری شد</string>
+    <string name="subscriptions">اشتراک‌ها</string>
+    <string name="subs_test">بررسی وضعیت اشتراک</string>
+    <string name="toast_buying_subscription">خرید اشتراک ماهانه</string>
+    <string name="toast_subscriptions_updated">وضعیت خرید‌ها به روز شد.</string>
 </resources>

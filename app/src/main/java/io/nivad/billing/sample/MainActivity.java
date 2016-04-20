@@ -1,14 +1,16 @@
 package io.nivad.billing.sample;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import io.nivad.iab.BillingProcessor;
 import io.nivad.iab.TransactionDetails;
+
+import java.util.List;
 
 /**
  * Please read the following for more information:
@@ -18,9 +20,13 @@ import io.nivad.iab.TransactionDetails;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private static final String BAZAAR_KEY = "Bazaar RSA Key";
-    private static final String NIVAD_APPLICATION_ID = "Nivad Application ID";
-    private static final String NIVAD_APPLICATION_SECRET = "Nivad Application Secret";
+    private static final String BAZAAR_KEY = "MIHNMA0GCSqGSIb3DQEBAQUAA4G7ADCBtwKBrwC6Dc/KjMIB3GGCR3YrYYILhhkAEYqGewj6Eksn7r5SdzOzEHxYgtxVDTF5A+759Z3a3+0fDeWl5NMRIMC+T/FHabShjuEtW8JygPHbuxdNeIE230DUZMqJF9qhficBWFJksu1I7TgpXP6eA2ML+SXKM6TkCC32vnQxoc1xosF0RTX7ajV3+1vIbpUlFcE3AE+A4fkDj5RbiSKwj8BGMNGKMwPU94Z3pRXOiCxN4g0CAwEAAQ==";
+    private static final String NIVAD_APPLICATION_ID = null;
+    private static final String NIVAD_APPLICATION_SECRET = null;
+
+//    private static final String BAZAAR_KEY = "Bazaar RSA Key";
+//    private static final String NIVAD_APPLICATION_ID = "Nivad Application ID";
+//    private static final String NIVAD_APPLICATION_SECRET = "Nivad Application Secret";
 
     private BillingProcessor mNivadBilling;
 
@@ -89,11 +95,11 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onPurchaseHistoryRestored() {
-            for(String sku : mNivadBilling.listOwnedProducts()) {
+            for(String sku : (List<String>) mNivadBilling.listOwnedProducts()) {
                 Log.d("nivad", "Owned Product: " + sku);
             }
 
-            for(String sku : mNivadBilling.listOwnedSubscriptions()) {
+            for(String sku : (List<String>) mNivadBilling.listOwnedSubscriptions()) {
                 Log.d("nivad", "Owned Subscription: " + sku);
             }
         }
@@ -131,13 +137,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnPurchaseTest2Click(View v) {
-        mNivadBilling.purchase(MainActivity.this, "nivad.billing_sample.non_consumable");
+        mNivadBilling.purchase(this, "nivad.billing_sample.non_consumable");
         makeToast(R.string.toast_buying_test2);
     }
 
     public void btnPurchaseTest1Click(View v) {
-        mNivadBilling.purchase(MainActivity.this, "nivad.billing_sample.consumable");
+        mNivadBilling.purchase(this, "nivad.billing_sample.consumable");
         makeToast(R.string.toast_buying_test1);
+    }
+
+
+    public void btnSubscribeClick(View view) {
+        mNivadBilling.purchase(this, "nivad.billing_sample.subscription");
+        makeToast(R.string.toast_buying_subscription);
+    }
+
+    public void btnCheckSubscriptionClick(View view) {
+        if (mNivadBilling.loadOwnedPurchasesFromBazaar()) {
+            makeToast(R.string.toast_subscriptions_updated);
+        }
     }
 
     // Utility
