@@ -10,6 +10,7 @@ apply plugin: 'com.android.application'
 
 repositories {
     jcenter()
+    maven { url 'http://repo.nivad.io:8081/artifactory/list/libs-release' }
 }
 
 android {
@@ -37,7 +38,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    // اگر فایل jar کتابخانه را دریافت کرده اید و در پوشهٔ app/libs قرار داده‌اید خط زیر را از حالت کامنت خارج کنید
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'io.nivad.iab:library:+'
 }
