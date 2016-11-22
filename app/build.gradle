@@ -38,8 +38,8 @@ android {
 }
 
 dependencies {
-    // اگر فایل jar کتابخانه را دریافت کرده اید و در پوشهٔ app/libs قرار داده‌اید خط زیر را از حالت کامنت خارج کنید
-//    compile fileTree(dir: 'libs', include: ['*.jar'])
+//     اگر فایل jar کتابخانه را دریافت کرده اید و در پوشهٔ app/libs قرار داده‌اید خط زیر را از حالت کامنت خارج کنید
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.1'
-    compile 'io.nivad.iab:library:+'
+//    compile 'io.nivad.billing:library:+'
 }

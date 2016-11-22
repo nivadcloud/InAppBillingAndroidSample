@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import io.nivad.iab.BillingProcessor;
+import io.nivad.iab.MarketName;
 import io.nivad.iab.TransactionDetails;
 
 import java.util.List;
@@ -41,7 +42,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setupViews();
         setButtonsEnabled(false);
-        mNivadBilling = new BillingProcessor(this, BAZAAR_KEY, NIVAD_APPLICATION_ID, NIVAD_APPLICATION_SECRET, mBillingMethods);
+        mNivadBilling = new BillingProcessor(
+            this,
+            BAZAAR_KEY, 
+            NIVAD_APPLICATION_ID,
+            NIVAD_APPLICATION_SECRET,
+            MarketName.CAFE_BAZAAR, 
+            mBillingMethods
+        );
     }
 
     private void setupViews() {
@@ -137,18 +145,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnPurchaseTest2Click(View v) {
-        mNivadBilling.purchase(this, "nivad.billing_sample.non_consumable");
+        // پارامتر سوم اختیاری است. برای اطلاعات بیشتر دربارهٔ وب‌هوک‌های نیواد و نقش این پارامتر در وب‌هوک‌ها به آدرس زیر مراجعه کنید:
+        // https://nivad.io/docs/webhooks/
+        mNivadBilling.purchase(this, "nivad.billing_sample.non_consumable", "webhook payload");
         makeToast(R.string.toast_buying_test2);
     }
 
     public void btnPurchaseTest1Click(View v) {
-        mNivadBilling.purchase(this, "nivad.billing_sample.consumable");
+        // پارامتر سوم اختیاری است. برای اطلاعات بیشتر دربارهٔ وب‌هوک‌های نیواد و نقش این پارامتر در وب‌هوک‌ها به آدرس زیر مراجعه کنید:
+        // https://nivad.io/docs/webhooks/
+        mNivadBilling.purchase(this, "nivad.billing_sample.consumable", "webhook payload");
         makeToast(R.string.toast_buying_test1);
     }
 
 
     public void btnSubscribeClick(View view) {
-        mNivadBilling.purchase(this, "nivad.billing_sample.subscription");
+        // پارامتر سوم اختیاری است. برای اطلاعات بیشتر دربارهٔ وب‌هوک‌های نیواد و نقش این پارامتر در وب‌هوک‌ها به آدرس زیر مراجعه کنید:
+        // https://nivad.io/docs/webhooks/
+        mNivadBilling.purchase(this, "nivad.billing_sample.subscription", "webhook payload");
         makeToast(R.string.toast_buying_subscription);
     }
 
