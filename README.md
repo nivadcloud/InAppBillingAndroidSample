@@ -12,14 +12,14 @@
 
 جهت اضافه کردن کتابخانه‌ی نیواد از سایت نیواد فایل jar کتابخانه را دانلود کنید یا خط زیر را به فایل build.gradle اضافه کنید:
 
-    compile 'io.nivad.iab:library:+'
+    compile 'io.nivad.billing:library:+'
 
 در متد onCreate اکتیویتی‌ای که پرداخت صورت می‌گیرد خط زیر را اضافه کنید:
 
     final String BAZAAR_KEY = "کلید RSA که از کافه بازار دریافت کردید";
     final String NIVAD_APPLICATION_ID = "مقدار Application ID که در پنل نیواد، بخش پرداخت امن دریافت کردید";
     final String NIVAD_APPLICATION_SECRET = "مقدار Application Secret که در پنل نیواد، بخش پرداخت امن دریافت کردید";
-    mNivadBilling = new BillingProcessor(this, BAZAAR_KEY, NIVAD_APPLICATION_ID, NIVAD_APPLICATION_SECRET, mBillingMethods);
+    mNivadBilling = new BillingProcessor(this, BAZAAR_KEY, NIVAD_APPLICATION_ID, NIVAD_APPLICATION_SECRET, MarketName.CAFE_BAZAAR, mBillingMethods);
 
 در ابتدای متد onActivityResult خطوط زیر را اضافه کنید:
 
